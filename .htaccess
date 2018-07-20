@@ -1,0 +1,7 @@
+#DirectoryIndex
+DirectoryIndex index.php index.html .ht
+
+
+<Files ~ "^cron\.">
+deny from all
+</Files>
