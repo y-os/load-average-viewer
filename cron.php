@@ -41,11 +41,5 @@
 	
 	
 	//保存
-	$fp = fopen($filename, 'w');
-	flock($fp, LOCK_EX);
-	
-	fwrite($fp, implode("\n", $filedata));
-	
-	flock($fp, LOCK_UN);
-	fclose($fp);
+	file_put_contents($filename, implode("\n", $filedata));
 ?>
