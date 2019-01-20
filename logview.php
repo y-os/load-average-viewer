@@ -33,7 +33,7 @@
 		$chart_data_5min[] = $load_average[2];
 		$chart_data_15min[] = $load_average[3];
 		
-		preg_match("/up ([\w\s\.]+),/", $values[2], $ptime);
+		preg_match("/up ([\w\s\.:]+),/", $values[2], $ptime);
 		
 		$table_data = '<tr><td>' . date('Y-m-d(' . $jp_week[date('w', $values[0])] . ')H:i:s', $values[0])  . '</td>'
 			. '<td>' . $load_average[1] . '</td>'

@@ -13,7 +13,7 @@
 		Linux は load average:、FreeBSD（さくらなど）は load averages:
 	*/
 	preg_match("/load averages?: ([\w\.]+), ([\w\.]+), ([\w\.]+)/", $ut_out[0], $load_average);
-	preg_match("/up ([\w\s\.]+),/", $ut_out[0], $ptime);
+	preg_match("/up ([\w\s\.:]+),/", $ut_out[0], $ptime);
 	
 	exec('vmstat', $vmstat_out);//vmstat
 	exec('free', $free_out);//free
