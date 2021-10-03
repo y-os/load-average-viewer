@@ -1,29 +1,18 @@
 <?php
-	/*
-		Footer
-		Copyright (C) Y.Oshima
-	*/
+/*
+	フッター
+	Copyright (c) Y.Oshima
+*/
 ?>
-
-
-
 </div>
-<!-- /page_body -->
+<!-- /page_main -->
 
 
 
-</div>
-<!-- /page_container -->
-
-
-
-<!-- page_footer -->
-<div id="page_footer">
-
+<!-- フッター -->
+<footer id="page_footer">
 <?php echo APP_NAME . ' Ver.' . APP_VERSION;?>
-
-</div>
-<!-- /page_footer -->
+</footer>
 
 
 
