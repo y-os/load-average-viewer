@@ -54,14 +54,17 @@ cronは1時間おきに記録することを想定しています。
 ### コマンド例
 #### エックスサーバー
 ```
-cd /home/ユーザー名/ドメイン名/public_html/(中略)/cron.phpがあるディレクトリ名/ ; /usr/bin/php7.1 ./cron.php
+cd /home/ユーザー名/ドメイン名/public_html/(中略)/cron.phpがあるディレクトリ名/ ; /usr/bin/php7.4 ./cron.php
 ```
 
 #### コアサーバー
+V1プランの場合
+
 ```
 /virtual/ユーザー名/public_html/ドメイン名/(中略)/cron.sh >/dev/null 2>&1
 ```
 
+末尾の 2>&1 はcronの出力をpostmaster（メール）へ送りたくない場合の指定。
 cron.sh は以下のように自分の環境に合わせて書き換えます。
 
 ```
@@ -69,10 +72,20 @@ cron.sh は以下のように自分の環境に合わせて書き換えます。
 /usr/local/bin/php /virtual/ユーザー名/public_html/ドメイン名/(中略)/cron.php
 ```
 
+V2プランは以下のように直接PHPを実行できました。
+
+```
+/home/ユーザー名/domains/ドメイン名/(中略)/cron.phpがあるディレクトリ名/ ; /usr/local/bin/php ./cron.php >/dev/null 2>&1
+```
+
+
 #### さくらのレンタルサーバ
 ```
 cd /home/ユーザー名/www/(中略)/cron.phpがあるディレクトリ名/ ; /usr/local/bin/php ./cron.php 1> /dev/null
 ```
+
+末尾の 1> /dev/null はcronの出力をpostmaster（メール）へ送りたくない場合の指定。
+
 
 
 ### ログの保存件数
