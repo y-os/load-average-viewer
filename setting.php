@@ -5,7 +5,7 @@
 */
 
 define('APP_NAME', 'Load Average Viewer');//名称
-define('APP_VERSION', '2021.10.03');//バージョン
+define('APP_VERSION', '2022.03.22');//バージョン
 
 define('LOG_FILEPATH', './cron.log');//ログファイルのパス
 define('LOG_LINES', 200);//ログの保存件数（行数）
