@@ -16,7 +16,7 @@ preg_match("/load averages?: ([\w\.]+), ([\w\.]+), ([\w\.]+)/", $ut_out[0], $loa
 preg_match("/up ([\w\s\.:]+),/", $ut_out[0], $ptime);
 
 exec('vmstat', $vmstat_out);//vmstat
-exec('free', $free_out);//free
+exec('free -h', $free_out);//free
 exec('top | grep Free', $top_out);//top
 
 
@@ -46,6 +46,9 @@ if($unames_out[0] == 'FreeBSD'){
 				break;
 			case 'hw.ncpu':
 				$cpu_cpu_cores[] = $cpuinfo_values[1];
+				break;
+			case 'hw.physmem':
+				$mem_cap[] = $cpuinfo_values[1];
 				break;
 		}
 	}
@@ -93,6 +96,10 @@ if($unames_out[0] == 'FreeBSD'){
 require('./setting.php');
 $page_title = APP_NAME;
 require('./page_header.php');
+
+//echo '<pre>';
+//print_r($free_out);
+//echo '</pre>';
 ?>
 
 
@@ -119,6 +126,8 @@ require('./page_header.php');
 
 
 
+
+
 <h2>コマンド結果（plain）</h2>
 <p><b>hostname</b><br><?php echo $hn_out[0]; ?></p>
 
@@ -141,7 +150,7 @@ if(!empty($vmstat_out)){
 	echo "N/A\n";
 }
 
-echo "\n<b>free</b>\n";
+echo "\n<b>free（メモリー）</b>\n";
 
 if(!empty($free_out)){
 	foreach($free_out as $free_value){
@@ -160,6 +169,11 @@ if(!empty($top_out)){
 	}
 }else{
 	echo "N/A\n\n";
+}
+
+if($unames_out[0] == 'FreeBSD'){
+	echo "\n<b>物理メモリー</b>\n";
+	echo number_format($mem_cap[0]) . 'バイト';
 }
 ?>
 </pre>
