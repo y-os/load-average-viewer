@@ -3,6 +3,8 @@
 	HOME
 	Copyright (c) Y.Oshima
 */
+require('./setting.php');
+
 exec('hostname', $hn_out);//ホスト名
 exec('uptime', $ut_out);//ロードアベレージ
 exec('uname -s', $unames_out);//OSタイプ
@@ -92,8 +94,6 @@ if($unames_out[0] == 'FreeBSD'){
 }
 
 
-
-require('./setting.php');
 $page_title = APP_NAME;
 require('./page_header.php');
 
