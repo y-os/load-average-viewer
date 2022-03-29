@@ -24,7 +24,7 @@ cronを使用して定期的にロードアベレージを記録し、グラフ�
 * page_footer.php: フッタ
 * setting.php: 各種設定
 * index.css: CSS
-* log.cgi: cronで記録すると作成されるログファイル
+* cron.log: cronで記録すると作成されるログファイル
 * .htaccess: cron関係のファイルへのアクセスを拒否するために使用。
 * Chart.min.js: グラフを作成するJavaScript（Chart.js）
 
