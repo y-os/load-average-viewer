@@ -112,6 +112,7 @@ require('./page_header.php');
 <tr><td>ロードアベレージ</td><td><?php echo $load_average[1]; ?>（直近1分）<br /><?php echo $load_average[2]; ?>（直近5分）<br /><?php echo $load_average[3]; ?>（直近15分）</td></tr>
 <tr><td>稼働時間</td><td><?php echo $ptime[1]; ?></td></tr>
 <tr><td>OSタイプ</td><td><?php echo $unames_out[0]; ?></td></tr>
+<tr><td>PHP Ver.</td><td><?php echo PHP_VERSION; ?></td></tr>
 </table>
 
 
