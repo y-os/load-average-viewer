@@ -91,19 +91,22 @@ var data = {
 };
 
 var options = {
-	scales: {
-		xAxes: [{
-			scaleLabel: {
-				display: true,
-				labelString: '日時'
+	scales:{
+		x:{
+			display:true,
+			title:{
+				display:true,
+				text:'日時'
 			}
-		}],
-		yAxes: [{
-			scaleLabel: {
-				display: true,
-				labelString: 'ロードアベレージ'
+		},
+		y:{
+			display:true,
+			min:0,
+			title:{
+				display:true,
+				text:'ロードアベレージ'
 			}
-		}]
+		}
 	}
 };
 
