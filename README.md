@@ -80,7 +80,7 @@ cron.sh は以下のように自分の環境に合わせて書き換えます。
 V2プランは以下のように直接PHPを実行できました。
 
 ```
-/home/ユーザー名/domains/ドメイン名/(中略)/cron.phpがあるディレクトリ名/ ; /usr/local/bin/php ./cron.php >/dev/null 2>&1
+cd /home/ユーザー名/domains/ドメイン名/(中略)/cron.phpがあるディレクトリ名/ ; /usr/local/bin/php ./cron.php >/dev/null 2>&1
 ```
 
 
