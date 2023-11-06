@@ -3,23 +3,21 @@
 	スタイル
 	Copyright (c) Y.Oshima
 */
-
 body {
-	font-family:sans-serif;
+	font-family:'Hiragino Kaku Gothic ProN',Meiryo,sans-serif;
 	margin:0;
 	padding:0;
 	font-size:100%;
 	background:#fff;
-	line-height:1.6;
+	line-height:1.5;
+	overflow-wrap:anywhere;
 	-webkit-text-size-adjust:100%;
 }
 
-a {text-decoration:none;}
-a:link {color:#13d;}
-a:visited {color:#808;}
+a {text-decoration:none;color:#36c;}
 a:hover {text-decoration:underline;}
 
-h2 {margin:2em 0 0.5em 0;padding:0;font-size:130%;border:solid #ddd;border-width:0 0 1px 0;}
+h2 {margin:2em 0 0.5em 0;padding:0;font-size:130%;border-bottom:1px solid #ddd;}
 h3 {margin:2em 0 0 0;padding:0;font-size:115%;}
 div > h2:first-child {margin:0 0 0.5em 0;}
 
@@ -37,8 +35,6 @@ pre {font-family:Courier,Monospace;line-height:normal;overflow:auto;}
 
 #ex_chart {max-width:1000px;max-height:500px;}
 
-
-
 /* page */
 #page_header {padding:3px 8px;font-size:130%;background:#000;color:#fff;}
 
@@ -46,13 +42,12 @@ pre {font-family:Courier,Monospace;line-height:normal;overflow:auto;}
 	position:-webkit-sticky;
 	position:sticky;
 	top:0;
-	background:#eee;
-	border:solid #555;
-	border-width:0 0 1px 0;
+	background:#f2f2f2;
+	border-bottom:1px solid #ddd;
 }
 
-.page_menu ul {display:flex;flex-direction:row;flex-wrap:wrap;margin:0;padding:0;list-style:none;}
+.page_menu ul {display:flex;flex-wrap:wrap;margin:0;padding:0;list-style:none;}
 .page_menu li {margin:0 6px;padding:6px;}
 
 #page_main {padding:16px 8px 30px 8px;}
-#page_footer {padding:16px 8px;border:solid #ddd;border-width:1px 0 0 0;}
+#page_footer {padding:16px 8px;border-top:1px solid #ddd;}
