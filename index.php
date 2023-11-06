@@ -98,7 +98,7 @@ $page_title = APP_NAME;
 require('./page_header.php');
 
 //echo '<pre>';
-//print_r($free_out);
+//print_r($cpuinfo);
 //echo '</pre>';
 ?>
 
@@ -113,6 +113,7 @@ require('./page_header.php');
 <tr><td>稼働時間</td><td><?php echo $ptime[1]; ?></td></tr>
 <tr><td>OSタイプ</td><td><?php echo $unames_out[0]; ?></td></tr>
 <tr><td>PHP Ver.</td><td><?php echo PHP_VERSION; ?></td></tr>
+<tr><td>現在の日時</td><td><?php echo date('Y-m-d (' . array('日','月','火','水','木','金','土')[date('w')] . ') H:i:s'); ?></td></tr>
 </table>
 
 
