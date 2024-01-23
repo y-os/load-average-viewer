@@ -27,7 +27,6 @@ $cpu_model_name = array();
 $cpu_physical_id = array();
 $cpu_cpu_cores = array();
 $cpu_siblings = array();
-
 $cpu_physical_id_count = '';
 $cpu_siblings_threads = '';
 
@@ -99,6 +98,7 @@ require('./page_header.php');
 
 //echo '<pre>';
 //print_r($cpuinfo);
+//print_r($_SERVER);
 //echo '</pre>';
 ?>
 
@@ -106,8 +106,9 @@ require('./page_header.php');
 
 <h2>サーバー情報</h2>
 <table class="ex_table_index">
-<tr><td>ホスト名</td><td><?php echo $hn_out[0]; ?></td></tr>
-<tr><td>IPアドレス</td><td><?php echo gethostbyname($hn_out[0]); ?></td></tr>
+<tr><td>Hostname</td><td><?php echo $hn_out[0]; ?></td></tr>
+<tr><td>HTTP_HOST</td><td><?php echo $_SERVER['HTTP_HOST']; ?></td></tr>
+<tr><td>IPアドレス</td><td><?php echo gethostbyname($_SERVER['HTTP_HOST']); ?></td></tr>
 <tr><td>IPアドレス(内部)</td><td><?php echo $_SERVER['SERVER_ADDR']; ?></td></tr>
 <tr><td>ロードアベレージ</td><td><?php echo $load_average[1]; ?>（直近1分）<br /><?php echo $load_average[2]; ?>（直近5分）<br /><?php echo $load_average[3]; ?>（直近15分）</td></tr>
 <tr><td>稼働時間</td><td><?php echo $ptime[1]; ?></td></tr>
@@ -130,7 +131,7 @@ require('./page_header.php');
 
 
 
-<h2>コマンド結果（plain）</h2>
+<h2>コマンド結果</h2>
 <p><b>hostname</b><br><?php echo $hn_out[0]; ?></p>
 
 <p><b>uptime</b><br><?php echo $ut_out[0]; ?></p>
