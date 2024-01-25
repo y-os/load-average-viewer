@@ -10,6 +10,8 @@ exec('uptime', $ut_out);//ロードアベレージ
 exec('uname -s', $unames_out);//OSタイプ
 exec('uname -a', $unamev_out);//OS情報
 
+$ip_address = gethostbyname($_SERVER['HTTP_HOST']);//IPアドレス
+$ip_host = gethostbyaddr($ip_address);//IP逆引き
 
 /*
 	Linux は load average:、FreeBSD（さくらなど）は load averages:
@@ -108,8 +110,8 @@ require('./page_header.php');
 <table class="ex_table_index">
 <tr><td>Hostname</td><td><?php echo $hn_out[0]; ?></td></tr>
 <tr><td>HTTP_HOST</td><td><?php echo $_SERVER['HTTP_HOST']; ?></td></tr>
-<tr><td>IP逆引き</td><td><?php echo gethostbyaddr(gethostbyname($_SERVER['HTTP_HOST'])); ?></td></tr>
-<tr><td>IPアドレス</td><td><?php echo gethostbyname($_SERVER['HTTP_HOST']); ?></td></tr>
+<tr><td>IP逆引き</td><td><?php echo $ip_host; ?></td></tr>
+<tr><td>IPアドレス</td><td><?php echo $ip_address; ?></td></tr>
 <tr><td>IPアドレス(内部)</td><td><?php echo $_SERVER['SERVER_ADDR']; ?></td></tr>
 <tr><td>ロードアベレージ</td><td><?php echo $load_average[1]; ?>（直近1分）<br /><?php echo $load_average[2]; ?>（直近5分）<br /><?php echo $load_average[3]; ?>（直近15分）</td></tr>
 <tr><td>稼働時間</td><td><?php echo $ptime[1]; ?></td></tr>
