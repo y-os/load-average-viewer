@@ -3,6 +3,7 @@
 	HOME
 	Copyright (c) Y.Oshima
 */
+require('./app_info.php');
 require('./setting.php');
 
 exec('hostname', $hn_out);//ホスト名
@@ -21,7 +22,7 @@ preg_match("/up ([\w\s\.:]+),/", $ut_out[0], $ptime);
 
 exec('vmstat', $vmstat_out);//vmstat
 exec('free -h', $free_out);//free
-exec('top | grep Free', $top_out);//top
+exec('top | grep -e Mem: -e Swap: -e CPU:', $top_out);//top
 
 
 //CPU
@@ -156,7 +157,7 @@ if(!empty($vmstat_out)){
 	echo "N/A\n";
 }
 
-echo "\n<b>free（メモリー）</b>\n";
+echo "\n<b>free</b>\n";
 
 if(!empty($free_out)){
 	foreach($free_out as $free_value){

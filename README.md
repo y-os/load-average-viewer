@@ -24,6 +24,7 @@ cronを使用して定期的にロードアベレージを記録し、グラフ�
 * page_header.php: ヘッダ
 * page_footer.php: フッタ
 * setting.php: 各種設定
+* app_info.php: アプリ情報
 * index.css: CSS
 * cron.log: cronで記録すると作成されるログファイル
 * .htaccess: cron関係のファイルへのアクセスを拒否するために使用。
@@ -40,7 +41,7 @@ cron関連のファイルの置き場所を変更したり、リネームした�
 
 ### 動作環境
 * OS： Linux、FreeBSD
-* 言語： PHP 8.x、7.x
+* 言語： PHP 8.x
 * 文字コード： UTF-8
 
 OSの種類（Linux、FreeBSD）により表示内容が異なります。

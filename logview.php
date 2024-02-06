@@ -3,6 +3,7 @@
 	ロードアベレージのログを表示
 	Copyright (c) Y.Oshima
 */
+require('./app_info.php');
 require('./setting.php');
 
 $filename = LOG_FILEPATH;//ログファイル名
