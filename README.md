@@ -58,10 +58,13 @@ cron.shを使う場合、その中身を自分の環境に合わせて編集し�
 cronは1時間おきに記録することを想定しています。
 1時間おきの場合は、分は 0、それ以外(時間、日、月、曜日)は * を指定します。
 
+下記コマンドの「>/dev/null」は標準出力を破棄する指定。「>/dev/null 2>&1」は標準出力と標準エラー出力の両方を破棄。
+通常、cronを実行するとpostmasterなどへメールが届きますが、それを破棄（メールが来ないように）できます。
+
 ### コマンド例
 #### エックスサーバー
 ```
-cd /home/ユーザー名/ドメイン名/public_html/(中略)/cron.phpがあるディレクトリ名/ ; /usr/bin/php8.2 ./cron.php
+cd /home/ユーザー名/ドメイン名/public_html/(中略)/cron.phpがあるディレクトリ名/ ; /usr/bin/php8.2 ./cron.php > /dev/null
 ```
 
 #### コアサーバー
@@ -71,29 +74,23 @@ V1プランの場合
 /virtual/ユーザー名/public_html/ドメイン名/(中略)/cron.sh >/dev/null 2>&1
 ```
 
-末尾の 2>&1 はcronの出力をpostmaster（メール）へ送りたくない場合の指定。
-cron.sh は以下のように自分の環境に合わせて書き換えます。
+cron.sh の中身は以下のように自分の環境に合わせて書き換えます。
 
 ```
 #!/bin/sh
 /usr/local/bin/php /virtual/ユーザー名/public_html/ドメイン名/(中略)/cron.php
 ```
 
-V2プランは以下のように直接PHPを実行できました。
+V2プランは以下のように直接PHPを実行できます。
 
 ```
 cd /home/ユーザー名/domains/ドメイン名/(中略)/cron.phpがあるディレクトリ名/ ; /usr/local/bin/php ./cron.php >/dev/null 2>&1
 ```
 
-
 #### さくらのレンタルサーバ
 ```
 cd /home/ユーザー名/www/(中略)/cron.phpがあるディレクトリ名/ ; /usr/local/bin/php ./cron.php 1> /dev/null
 ```
-
-末尾の 1> /dev/null はcronの出力をpostmaster（メール）へ送りたくない場合の指定。
-
-
 
 #### ConoHa WING
 ```
