@@ -1,5 +1,9 @@
 # 変更履歴
 
+## 2024-04-23
+* Chart.js アップデート(v4.4.2)。
+* Chart.js の読み込みを page_header.php から logview.php に変更。
+
 ## 2024-02-06
 * 設定 setting.php からアプリ情報を分離。app_info.php 新規作成。
 * topコマンド変更。

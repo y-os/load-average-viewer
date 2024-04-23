@@ -15,8 +15,6 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="robots" content="noindex,nofollow">
 
-<script async src="./chart.js/chart.min.js"></script>
-
 </head>
 <body>
 

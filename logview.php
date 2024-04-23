@@ -49,8 +49,6 @@ $page_title = 'ロードアベレージ・ログ';
 require('./page_header.php');
 ?>
 
-
-
 <h2>ロードアベレージ・ログ</h2>
 <h3>グラフ</h3>
 
@@ -58,6 +56,7 @@ require('./page_header.php');
 <canvas id="ex_chart"></canvas>
 </div>
 
+<script async src="./chart.js/chart.umd.js"></script>
 <script>
 window.addEventListener('load', function(){
 
