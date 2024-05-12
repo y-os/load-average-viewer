@@ -30,6 +30,7 @@ $cpu_model_name = array();
 $cpu_physical_id = array();
 $cpu_cpu_cores = array();
 $cpu_siblings = array();
+$cpu_mhz = array();
 $cpu_physical_id_count = '';
 $cpu_siblings_threads = '';
 
@@ -72,16 +73,19 @@ if($unames_out[0] == 'FreeBSD'){
 		
 		switch($cpuinfo_values[0]){
 			case 'model name':
-				$cpu_model_name[] = $cpuinfo_values[1];
+				$cpu_model_name[] = trim($cpuinfo_values[1]);
 				break;
 			case 'physical id':
-				$cpu_physical_id[] = $cpuinfo_values[1];
+				$cpu_physical_id[] = trim($cpuinfo_values[1]);
 				break;
 			case 'cpu cores':
-				$cpu_cpu_cores[] = $cpuinfo_values[1];
+				$cpu_cpu_cores[] = trim($cpuinfo_values[1]);
 				break;
 			case 'siblings':
-				$cpu_siblings[] = $cpuinfo_values[1];
+				$cpu_siblings[] = trim($cpuinfo_values[1]);
+				break;
+			case 'cpu MHz':
+				$cpu_mhz[] = trim($cpuinfo_values[1]);
 				break;
 		}
 	}
@@ -101,6 +105,7 @@ require('./page_header.php');
 
 //echo '<pre>';
 //print_r($cpuinfo);
+//print_r($cpu_model_name);
 //print_r($_SERVER);
 //echo '</pre>';
 ?>
@@ -163,6 +168,17 @@ if(!empty($free_out)){
 	foreach($free_out as $free_value){
 		echo $free_value . "\n";
 	}
+}else{
+	echo "N/A\n";
+}
+
+echo "\n<b>CPU クロック周波数（全コア全スレッド現在値）</b>\n";
+
+if(!empty($cpu_mhz)){
+	echo '平均値：' . (int)(array_sum($cpu_mhz) / count($cpu_mhz)) . ' MHz　';
+	echo '最大値：' . (int)(max($cpu_mhz)) . ' MHz　';
+	echo '最小値：' . (int)(min($cpu_mhz)) . ' MHz';
+	echo "\n";
 }else{
 	echo "N/A\n";
 }
